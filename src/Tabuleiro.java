@@ -15,7 +15,8 @@ public class Tabuleiro {
         }
         System.out.println();
     }
-    public boolean jogadaValida(int jogada) {
+
+    public boolean jogadaPermitida(int jogada) {
         switch (jogada) {
 
             case 1:
@@ -41,7 +42,7 @@ public class Tabuleiro {
         }
     }
 
-    public void realizarJogada(int jogada, char simbolo) {
+    public void realizar(int jogada, char simbolo) {
         switch (jogada) {
             case 1:
                 tabuleiro[0][0] = simbolo;
@@ -75,7 +76,7 @@ public class Tabuleiro {
 
         }
 
-    public boolean verificar(){
+    public boolean verificar() {
         for (int i = 0; i < 3; i++) {
             if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]) {
                 return true;
@@ -83,9 +84,20 @@ public class Tabuleiro {
         }
 
         for (int i = 0; i < 3; i++) {
-            if
+            if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i]) {
+                return true;
+            }
         }
+
+        if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
+            return true;
+        }
+        if (tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
+            return true;
+        }
+        return false;
     }
+
 
 
 }
