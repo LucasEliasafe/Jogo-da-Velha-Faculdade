@@ -43,10 +43,49 @@ public class Tabuleiro {
 
     public void realizarJogada(int jogada, char simbolo) {
         switch (jogada) {
+            case 1:
+                tabuleiro[0][0] = simbolo;
+                break;
+            case 2:
+                tabuleiro[0][1] = simbolo;
+                break;
+            case 3:
+                tabuleiro[0][2] = simbolo;
+                break;
+            case 4:
+                tabuleiro[1][0] = simbolo;
+                break;
+            case 5:
+                tabuleiro[1][1] = simbolo;
+                break;
+            case 6:
+                tabuleiro[1][2] = simbolo;
+                break;
+            case 7:
+                tabuleiro[2][0] = simbolo;
+                break;
+            case 8:
+                tabuleiro[2][1] = simbolo;
+                break;
+            case 9:
+                tabuleiro[2][2] = simbolo;
+                break;
+
+            }
 
         }
-    }
 
+    public boolean verificar(){
+        for (int i = 0; i < 3; i++) {
+            if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]) {
+                return true;
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if
+        }
+    }
 
 
 }
