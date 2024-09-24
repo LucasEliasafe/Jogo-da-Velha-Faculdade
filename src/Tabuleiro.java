@@ -98,6 +98,14 @@ public class Tabuleiro {
         return false;
     }
 
-
-
+    public boolean tabuleirocompleto(){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tabuleiro[i][j] != 'X' && tabuleiro[i][j] != 'O') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
