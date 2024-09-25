@@ -5,6 +5,8 @@ public class Tabuleiro {
             {'7', '8', '9'}
     };
 
+    private Stack<Integer> historicoJogadas = new Stack<>();
+
     public void exibir() {
         System.out.println();
         for (int i = 0; i < 3; i++) {
@@ -74,7 +76,7 @@ public class Tabuleiro {
                 break;
 
             }
-
+        historicoJogadas.push(jogada);
         }
 
     public boolean verificar() {
@@ -108,5 +110,13 @@ public class Tabuleiro {
             }
         }
         return true;
+    }
+
+    public void reiniciar() {
+        tabuleiro = new char[][] {
+                {'1', '2', '3'},
+                {'4', '5', '6'},
+                {'7', '8', '9'}
+        };
     }
 }
