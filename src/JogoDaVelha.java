@@ -38,15 +38,26 @@ public class JogoDaVelha {
     }
 
     public void iniciar() {
+        tabuleiro.reiniciar();
+        jogadorAtual = new Jogador('X');
         boolean jogoEmAndamento = true;
         Scanner scanner = new Scanner(System.in);
 
         while (jogoEmAndamento) {
             tabuleiro.exibir();
             System.out.println("Jogador " + jogadorAtual.getVelha() + ", escolha um número (1-9): ");
+            System.out.println("Digite 1-9 para fazer uma jogada");
+            System.out.println("Digite 0 para voltar a última jogada");
             int jogada = scanner.nextInt();
 
-            if (tabuleiro.jogadaPermitida(jogada)) {
+            if (jogada == 0) {
+                if (tabuleiro.desfazerUltimaJogada()) {
+                    System.out.println("Última jogada desfeita.");
+                    jogadorAtual = Jogador.alternarJogador(jogadorAtual);
+                } else {
+                    System.out.println("Não há jogadas para desfazer.");
+                }
+            } else if (tabuleiro.jogadaPermitida(jogada)) {
                 tabuleiro.realizar(jogada, jogadorAtual.getVelha());
                 if (tabuleiro.verificar()) {
                     tabuleiro.exibir();
@@ -66,5 +77,8 @@ public class JogoDaVelha {
     }
 
 
-
+    public static void main(String[] args) {
+        JogoDaVelha jogo = new JogoDaVelha();
+        jogo.mostrarMenu();
+    }
 }
