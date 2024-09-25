@@ -32,44 +32,45 @@ public class Tabuleiro {
             case 6:
                 return tabuleiro[1][2] == '6';
             case 7:
-                return tabuleiro[1][3] == '7';
+                return tabuleiro[2][0] == '7';
             case 8:
-                return tabuleiro[2][0] == '8';
+                return tabuleiro[2][1] == '8';
             case 9:
-                return tabuleiro[2][1] == '9';
-            default: return false;
+                return tabuleiro[2][2] == '9';
+            default:
+                return false;
 
         }
     }
 
-    public void realizar(int jogada, char simbolo) {
+    public void realizar(int jogada, char velha) {
         switch (jogada) {
             case 1:
-                tabuleiro[0][0] = simbolo;
+                tabuleiro[0][0] = velha;
                 break;
             case 2:
-                tabuleiro[0][1] = simbolo;
+                tabuleiro[0][1] = velha;
                 break;
             case 3:
-                tabuleiro[0][2] = simbolo;
+                tabuleiro[0][2] = velha;
                 break;
             case 4:
-                tabuleiro[1][0] = simbolo;
+                tabuleiro[1][0] = velha;
                 break;
             case 5:
-                tabuleiro[1][1] = simbolo;
+                tabuleiro[1][1] = velha;
                 break;
             case 6:
-                tabuleiro[1][2] = simbolo;
+                tabuleiro[1][2] = velha;
                 break;
             case 7:
-                tabuleiro[2][0] = simbolo;
+                tabuleiro[2][0] = velha;
                 break;
             case 8:
-                tabuleiro[2][1] = simbolo;
+                tabuleiro[2][1] = velha;
                 break;
             case 9:
-                tabuleiro[2][2] = simbolo;
+                tabuleiro[2][2] = velha;
                 break;
 
             }
