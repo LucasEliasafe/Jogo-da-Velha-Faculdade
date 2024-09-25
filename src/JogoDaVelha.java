@@ -63,17 +63,21 @@ public class JogoDaVelha {
 
         while (jogoEmAndamento) {
             tabuleiro.exibir();
-            System.out.println("Jogador " + jogadorAtual.getVelha() + ", escolha uma opção: ");
-            System.out.println("1-9 para fazer uma jogada, 0 para voltar a última jogada, 99 para sair ao menu");
+            System.out.println("\nJogador " + jogadorAtual.getVelha() + ", escolha uma opção: \n");
+            System.out.println("Digite 1-9 para fazer uma jogada");
+            System.out.println("Digite 99 para voltar a última jogada");
+            System.out.println("Digite 98 para sair ao menu");
+            System.out.print("Escolha uma opção: ");
+
             int jogada = scanner.nextInt();
 
-            if (jogada == 99) {
+            if (jogada == 98) {
                 System.out.println("Voltando ao menu...");
-                return; // Volta para o menu, sem perder o estado do jogo
-            } else if (jogada == 0) {
+                return;
+            } else if (jogada == 99) {
                 if (tabuleiro.desfazerUltimaJogada()) {
                     System.out.println("Última jogada desfeita.");
-                    jogadorAtual = Jogador.alternarJogador(jogadorAtual); // Alterna o jogador de volta
+                    jogadorAtual = Jogador.alternarJogador(jogadorAtual);
                 } else {
                     System.out.println("Não há jogadas para desfazer.");
                 }
@@ -82,13 +86,13 @@ public class JogoDaVelha {
                 if (tabuleiro.verificar()) {
                     tabuleiro.exibir();
                     System.out.println("Jogador " + jogadorAtual.getVelha() + " venceu!");
-                    jogoEmAndamento = false; // O jogo termina após vitória
+                    jogoEmAndamento = false;
                 } else if (tabuleiro.tabuleirocompleto()) {
                     tabuleiro.exibir();
                     System.out.println("Empate!");
-                    jogoEmAndamento = false; // O jogo termina em empate
+                    jogoEmAndamento = false;
                 } else {
-                    jogadorAtual = Jogador.alternarJogador(jogadorAtual); // Alterna o jogador
+                    jogadorAtual = Jogador.alternarJogador(jogadorAtual);
                 }
             } else {
                 System.out.println("Jogada inválida, tente novamente.");
